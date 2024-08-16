@@ -65,24 +65,50 @@ const App = () => {
   }
 
   return (
-      <div className="app">
-        <p><b>Welcome to ChatBot! What would you like to know?</b>
-          <button className="surprise" onClick={surprise} disabled={!chatHistory}>Surprise me!</button>
-        </p>
-        <div className="input-container">
-          <input value={value} 
-              placeholder="When is Christmas...?"
-              onChange={(e) => setValue(e.target.value)}/>
-          {!error && <button onClick={getResponse}>Ask me</button>}
-          {error && <button onClick={clear}>Clear</button>}
-        </div>
-        {error && <p>{error}</p>}
-        <div className="search-result">
-            {chatHistory.map((chatItem, _index) => <div key={_index} className={chatItem.role === "user" ? "user-message" : "model-message"}>
-              <p>{chatItem.role} : {chatItem.parts[0].text}</p>
-            </div>)}
-        </div>
+    <div className="app">
+    <div className="welcome-message">
+      <p><b>Welcome to ChatBot! What would you like to know?</b></p>
+    </div>
+    
+    <div className="search-section">
+      <div className="search-result">
+        {chatHistory.map((chatItem, _index) => (
+          <div
+            key={_index}
+            className={chatItem.role === "user" ? "user-message" : "model-message"}
+          >
+            <p>{chatItem.role}: {chatItem.parts[0].text}</p>
+          </div>
+        ))}
       </div>
+      
+      <div className="input-container">
+        <input
+          value={value}
+          placeholder="When is Christmas...?"
+          onChange={(e) => setValue(e.target.value)}
+        />
+        {!error && (
+          <button onClick={getResponse}>
+            Send
+          </button>
+        )}
+        {error && (
+          <button onClick={clear}>Clear</button>
+        )}
+        <button
+          className="surprise"
+          onClick={surprise}
+          disabled={!chatHistory}
+        >
+          Surprise me!
+        </button>
+      </div>
+  
+      {error && <p>{error}</p>}
+    </div>
+  </div>
+  
   )
 }
 
