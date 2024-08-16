@@ -24,8 +24,8 @@ body {
 
 .header {
   top: 0; 
-  background-color: #13064d; /* Navy color */
-  color: #fff; /* White font */
+  background-color: #13064d; 
+  color: #fff; 
   padding: 20px;
   text-align: left;
   width: 100vw; 
@@ -101,11 +101,11 @@ body {
 
 .user-message,
 .model-message {
-  max-width: 75%; /* Increase max-width for better visibility */
-  padding: 16px 24px; /* Increase padding for more space */
-  margin: 10px 0; /* Add margin for separation */
-  font-size: 18px; /* Increase font size for readability */
-  font-weight: 300; /* Adjust font weight for better appearance */
+  max-width: 75%; 
+  padding: 16px 24px; 
+  margin: 10px 0;
+  font-size: 18px; 
+  font-weight: 300;
   border-radius: 20px;
   border: solid 0.5px #cacaca;
 }
